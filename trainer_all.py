@@ -17,8 +17,6 @@ import numpy as np
 import tensorflow as tf
 import tensorflow.contrib.layers as c_layers
 from net_all import NetA
-from net_cbs import NetCBS
-from net_transformer import NetTR
 
 GPU = '0'
 logger = logging.getLogger("traffic")
@@ -47,7 +45,7 @@ class Trainer(object):
         self.stats = {'train_loss': [], 'eval_loss': [], }
         self.stats_aux = {}
         self.summary_writer = tf.summary.FileWriter(self.summary_path)
-        self.model_cls = {'neta': NetA, 'netcbs': NetCBS, 'nettr': NetTR}
+        self.model_cls = {'neta': NetA}
 
         with tf.device('/gpu:' + GPU):
 
